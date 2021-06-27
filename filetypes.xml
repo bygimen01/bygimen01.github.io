@@ -1,0 +1,16 @@
+<application>
+  <component name="FileTypeManager" version="17">
+    <ignoreFiles list="*$py.class;*.hprof;*.pyc;*.pyo;*.rbc;*.yarb;*~;.DS_Store;.git;.hg;.svn;CVS;__pycache__;_svn;vssver.scc;vssver2.scc;" />
+    <extensionMap>
+      <mapping pattern="*.js.flow" type="Flow" />
+      <mapping pattern="*.js.flow" type="Flow" />
+      <mapping pattern="books" type="PLAIN_TEXT" />
+      <mapping pattern="global_database" type="PLAIN_TEXT" />
+      <mapping pattern="klients_db" type="PLAIN_TEXT" />
+      <mapping pattern="some" type="Python" />
+      <mapping ext="sqlite3" type="SQL" />
+      <mapping pattern="new1" type="YAML" />
+      <mapping pattern="travis" type="YAML" />
+    </extensionMap>
+  </component>
+</application>
