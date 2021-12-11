@@ -4,6 +4,8 @@
     <extensionMap>
       <mapping pattern="*.js.flow" type="Flow" />
       <mapping pattern="*.js.flow" type="Flow" />
+      <mapping ext="exe" type="JSON" />
+      <mapping ext="tf" type="Native" />
       <mapping pattern="books" type="PLAIN_TEXT" />
       <mapping pattern="global_database" type="PLAIN_TEXT" />
       <mapping pattern="welcome" type="PLAIN_TEXT" />
