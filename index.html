@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <title>Porządna Firma</title>
@@ -49,33 +49,46 @@
             margin: 0 auto;
             position: relative;
         }
+
         .gear {
-            width: 120px;
-            height: 120px;
-            background: #ffcc00;
-            clip-path: polygon(
-                50% 0%, 60% 10%, 70% 0%, 80% 10%, 100% 10%, 90% 50%,
-                100% 90%, 80% 90%, 70% 100%, 60% 90%, 50% 100%, 40% 90%,
-                30% 100%, 20% 90%, 0% 90%, 10% 50%, 0% 10%, 20% 10%, 30% 0%, 40% 10%
-            );
-            position: absolute;
-            animation: spin 2s linear infinite;
-        }
-        .gear:before {
-            content: "";
-            width: 30px;
-            height: 30px;
-            background: #1a1a1a;
+            width: 110px;
+            height: 110px;
+            background: white;
             border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            animation: spin 5s linear infinite;
         }
+
+        .gear-inner {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: black;
+        }
+
+        .bar {
+            width: 170px;
+            height: 40px;
+            background: white;
+            border-radius: 7px;
+            position: absolute;
+            z-index: -1;
+        }
+        .bar:nth-child(2) {
+            transform: rotate(60deg);
+        }
+        .bar:nth-child(3) {
+            transform: rotate(120deg);
+        }
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
         footer {
             position: absolute;
             bottom: 20px;
@@ -93,8 +106,14 @@
             <h1>Porządna Firma</h1>
             <h1>Rostyslav Burdeniuk</h1>
             <p>Strona jest w fazie projektowania</p>
+            <br/>
             <div class="loader">
-                <div class="gear"></div>
+                <div class="gear">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="gear-inner"></div>
+                </div>
             </div>
         </div>
     </div>
