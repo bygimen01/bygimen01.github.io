@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Porządna Firma. Rostyslav Burdeniuk</title>
+    <title>Porządna Firma</title>
     <link rel="icon" href="favicon.png" type="image/png">
     <style>
         body, html {
@@ -44,13 +44,30 @@
             margin-bottom: 40px;
         }
         .loader {
-            border: 16px solid #f3f3f3;
-            border-top: 16px solid #ffcc00;
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            animation: spin 2s linear infinite;
+            width: 100px;
+            height: 100px;
             margin: 0 auto;
+            position: relative;
+        }
+        .gear {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, #ffcc00 40%, transparent 41%);
+            border: 10px solid #f3f3f3;
+            border-radius: 50%;
+            position: absolute;
+            animation: spin 2s linear infinite;
+        }
+        .gear:before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         @keyframes spin {
             0% { transform: rotate(0deg); }
@@ -73,7 +90,9 @@
             <h1>Porządna Firma</h1>
             <h1>Rostyslav Burdeniuk</h1>
             <p>Strona jest w fazie projektowania</p>
-            <div class="loader"></div>
+            <div class="loader">
+                <div class="gear"></div>
+            </div>
         </div>
     </div>
     <footer>&copy; 2024 Porządna Firma. Rostyslav Burdeniuk. All rights reserved.</footer>
