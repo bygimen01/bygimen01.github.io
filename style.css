@@ -1,34 +1,228 @@
-html,body{
-    font-family: sans-serif;
-    text-align: center;
+body, html {
     height: 100%;
     margin: 0;
-    padding: 0;
+}
+
+#navigation {
+    position: fixed;
+    top: 0;
     width: 100%;
+    z-index: 1020;
 }
-header{
+
+.navbar-shadow {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.navbar-toggler {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    z-index: 1030;
+}
+
+.navbar-nav {
+    text-transform: uppercase;
+}
+
+.nav-item {
+    font-weight: 500;
+}
+
+.banner {
+    min-height: calc(100vh - 56px);
+    background: url('./images/banner_background.webp') center/cover no-repeat;
+    position: relative;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
-.Header-links-ul{
-    width: 60%;
-    list-style: none;
+
+.contact-about {
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+#about img {
+    max-width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#about h2 {
+    font-size: 2rem;
+}
+
+#about p {
+    line-height: 1.6;
+}
+
+#services img {
+    max-width: 64px;
+    height: auto;
+}
+
+#services h5 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+#services a {
+    color: #0056b3;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+#services a:hover {
+    text-decoration: underline;
+}
+
+.white-icon {
+    filter: invert(100%) brightness(200%);
+}
+
+.banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5));
+    z-index: 1;
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    transform: scale(1.2);
+    z-index: -1;
+    transition: transform 1.5s ease-out;
+}
+
+.banner.scrolled::before {
+    transform: scale(1) translateY(0%);
+}
+
+.text-center {
+    z-index: 999;
+}
+
+.banner .text-center h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.banner .text-center p {
+    font-size: 1.25rem;
+}
+
+.scroll-indicator {
+    width: 100%;
+    height: 50px;
+    margin-top: -50px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
 }
-.header-link{
-    padding: 0.4rem;
-    border-radius: 2px;
+
+.scroll-indicator .arrow {
+    font-size: 36px;
+    color: #fff;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.navbar, .footer, .bg-dark {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#services .col-md-3 {
+    position: relative;
+    overflow: hidden;
     cursor: pointer;
 }
-.header-link:hover{
-    border-bottom: 1px solid white;
+
+#services .col-md-3 img {
+    transition: transform 0.5s ease-in-out;
 }
-main{
-    padding: 2rem;
-    font-size: 1rem;
+
+#services .col-md-3:hover img {
+    transform: scale(1.2) rotate(5deg);
 }
-.title {
-    font-size: 3rem;
+
+#services .col-md-3 h5 {
+    transition: transform 0.3s ease-in-out, color 0.3s ease;
+}
+
+#services .col-md-3:hover h5 {
+    transform: translateY(-10px);
+    color: #ffc107;
+}
+
+.animate {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 1s ease-in-out;
+}
+
+.animate.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.font-awesome {
+    height: 54px;
+    width: 54px;
+    fill: white;
+}
+
+@media (max-width: 768px) {
+    .navbar-nav, .footer {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .banner-text {
+        padding: 10px;
+    }
+}
+
+@media (max-height: 1024px) {
+    .banner {
+        background: url('./images/banner_background.webp') center no-repeat;
+    }
+}
+
+@media (max-width: 550px) {
+    .contact-nav {
+        display: none;
+    }
 }
