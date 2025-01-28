@@ -91,3 +91,47 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", handleSubmit);
     handleScroll();
 });
+
+$(document).ready(function () {
+    const contactNav = $(".contact-nav");
+    const menuTogglerButton = $("#menuToggleButton");
+
+    function moveUnderline(up) {
+        let underline = $(".container-underline");
+        let currentTop = parseInt(underline.css("top"));
+        let height = parseInt($(".burger-menu").css('height'));
+        let targetTop = up ? currentTop - height : currentTop + height;
+        let step = up ? -3 : 3;
+        let interval = setInterval(() => {
+            currentTop += step;
+            underline.css("top", currentTop + "px");
+
+            if ((up && currentTop <= targetTop) || (!up && currentTop >= targetTop)) {
+                underline.css("top", targetTop + "px");
+                clearInterval(interval);
+            }
+        }, 1);
+    }
+
+    function hideNavContactNumber() {
+        contactNav.fadeOut();
+        moveUnderline(false);
+    }
+
+    function showNavContactNumber() {
+        contactNav.fadeIn();
+        moveUnderline(true);
+    }
+
+    function toggleMenuButtonEvent() {
+        if (menuTogglerButton.hasClass('collapsed')) {
+            showNavContactNumber();
+            console.log("Showing");
+        } else {
+            hideNavContactNumber();
+            console.log("Hiding");
+        }
+    }
+
+    menuTogglerButton.on('click', toggleMenuButtonEvent);
+});

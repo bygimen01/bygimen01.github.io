@@ -1,0 +1,19 @@
+.contact-about {
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+#about img {
+    max-width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#about h2 {
+    font-size: 2rem;
+}
+
+#about p {
+    line-height: 1.6;
+}

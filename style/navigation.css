@@ -1,0 +1,88 @@
+#navigation {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1020;
+    padding: 10px;
+}
+
+.navbar-shadow {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.navbar-toggler {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    z-index: 1030;
+}
+
+.navbar-nav {
+    text-transform: uppercase;
+}
+
+.container-underline {
+    position: absolute;
+    content: '';
+    top: 55.5px;
+    left: 0;
+    background-color: #FFD700;
+    height: 2.5px;
+    width: 100%;
+}
+
+.nav-item {
+    font-weight: 500;
+}
+
+.nav-link {
+    z-index: 999;
+}
+
+.logo-nav {
+    height: 36px;
+    width: 36px;
+    margin-right: 10px;
+}
+
+.logo-with-contact {
+    position: relative;
+}
+
+.contact-nav {
+    position: absolute;
+    margin-top: 2.5px;
+}
+
+.nav-phone-number {
+    margin-left: 30px;
+    margin-top: 5px
+}
+
+.contact-nav::after {
+    content: '';
+    height: 50px;
+    width: 200px;
+    position: absolute;
+    left: 0px;
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+    clip-path: polygon(0 5px, 100% 5px, 80% 100%, 20% 100%);
+    z-index: 10;
+}
+
+.navbar-collapse {
+    z-index: 10000;
+}
+
+.contact-nav::before {
+    content: '';
+    height: 50px;
+    width: 205px;
+    left: -2.5px;
+    top: 2.5px;
+    position: absolute;
+    background-color: #FFD700;
+    clip-path: polygon(0 5px, 100% 5px, 80% 100%, 20% 100%);
+    z-index: 0;
+}

@@ -7,22 +7,35 @@
     <link rel="icon" href="favicon.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="./style/about.css">
+    <link rel="stylesheet" href="./style/animation.css">
+    <link rel="stylesheet" href="./style/banner.css">
+    <link rel="stylesheet" href="./style/mobile.css">
+    <link rel="stylesheet" href="./style/navigation.css">
+    <link rel="stylesheet" href="./style/services.css">
+    <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
 <div id="navigation" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container d-flex align-items-center">
-        <a class="navbar-brand" href="#banner">Porządna Firma</a>
+        <div class="logo-with-contact">
+            <div class="logo-with-title">
+            <img class="logo-nav" src="favicon.svg" alt="logo">
+            <a class="navbar-brand" href="#banner">Porządna Firma</a>
+        </div>
         <div class="navbar-nav contact-nav order-1 me-auto">
-            <a class="nav-link" href="tel:+48999999999">+48 999 999 999</a>
+            <a class="nav-link nav-phone-number" href="tel:+48999999999">+48 999 999 999</a>
+        </div>
         </div>
         <button class="navbar-toggler order-2 ms-auto" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
+                aria-label="Toggle navigation" id="menuToggleButton">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse order-lg-1" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav burger-menu ms-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#about">O firmie</a>
                 </li>
@@ -38,6 +51,8 @@
             </ul>
         </div>
     </div>
+    <div class="container-underline">
+    </div>
 </div>
 
 
@@ -46,7 +61,6 @@
         <div class="text-center banner-text">
             <h1>Porządna Firma</h1>
             <p>Realizujemy Twoje marzenia – solidnie, precyzyjnie i na czas. Zaufaj specjalistom!</p>
-            <!--                <a href="#services" class="btn btn-primary">Dowiedz się więcej</a>-->
         </div>
     </div>
 
@@ -83,8 +97,10 @@
                         <img src="./images/banner_background_2.webp" alt="O firmie" class="img-fluid rounded">
                     </div>
                     <div class="text-center contact-about animate">
-                    <h5 class="mb-3 animate">Masz pytania?</h5>
-                    <p class="animate">Jesteśmy do Twojej dyspozycji, gotowi udzielić szczegółowych informacji o naszej ofercie oraz doradzić na każdym etapie realizacji Twojego projektu. Skontaktuj się z nami, aby omówić swoje potrzeby i oczekiwania.</p>
+                        <h5 class="mb-3 animate">Masz pytania?</h5>
+                        <p class="animate">Jesteśmy do Twojej dyspozycji, gotowi udzielić szczegółowych informacji o
+                            naszej ofercie oraz doradzić na każdym etapie realizacji Twojego projektu. Skontaktuj się z
+                            nami, aby omówić swoje potrzeby i oczekiwania.</p>
 
 
                         <div class="d-flex align-items-center justify-content-center mb-3 animate">
@@ -114,7 +130,8 @@
     <div class="container">
         <div class="text-center mb-5 animate">
             <h2 class="fw-bold">Szeroki zakres prac</h2>
-            <p>Zapewniamy kompleksowe usługi budowlane, gwarantując wsparcie na każdym etapie <strong>realizacji Twojego wymarzonego domu</strong>.</p>
+            <p>Zapewniamy kompleksowe usługi budowlane, gwarantując wsparcie na każdym etapie <strong>realizacji Twojego
+                wymarzonego domu</strong>.</p>
         </div>
         <div class="row text-center">
             <div class="col-md-3 col-sm-6 mb-4 animate">
@@ -126,7 +143,8 @@
                 <h5>Usługi geodezyjne</h5>
             </div>
             <div class="col-md-3 col-sm-6 mb-4 animate">
-                <img src="./images/badania_geotechniczne.png" alt="Badania geotechniczne" class="mb-3 white-icon" width="64">
+                <img src="./images/badania_geotechniczne.png" alt="Badania geotechniczne" class="mb-3 white-icon"
+                     width="64">
                 <h5>Badania geotechniczne</h5>
             </div>
             <div class="col-md-3 col-sm-6 mb-4 animate">
@@ -138,7 +156,8 @@
                 <h5>Prace ziemne</h5>
             </div>
             <div class="col-md-3 col-sm-6 mb-4 animate">
-                <img src="./images/wykonywanie_fundamentow.png" alt="Wykonywanie fundamentów" class="mb-3 white-icon" width="64">
+                <img src="./images/wykonywanie_fundamentow.png" alt="Wykonywanie fundamentów" class="mb-3 white-icon"
+                     width="64">
                 <h5>Wykonywanie fundamentów</h5>
             </div>
             <div class="col-md-3 col-sm-6 mb-4 animate">
@@ -230,7 +249,6 @@
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="core.js"></script>
 </body>
 </html>

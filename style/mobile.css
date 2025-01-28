@@ -1,0 +1,29 @@
+@media (max-width: 768px) {
+    .navbar-nav, .footer {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .banner-text {
+        padding: 10px;
+    }
+
+}
+
+@media (max-height: 1024px) {
+    .banner {
+        background: url('../images/banner_background.webp') center no-repeat;
+    }
+}
+
+@media (max-width: 345px) {
+    .contact-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .navbar-nav {
+        text-align: right;
+    }
+}
