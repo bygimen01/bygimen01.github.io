@@ -56,14 +56,14 @@
 }
 
 .nav-phone-number {
-    margin-left: 30px;
-    margin-top: 5px
+    margin: 5px 0 0 20px;
+    padding: 0;
 }
 
 .contact-nav::after {
     content: '';
-    height: 50px;
-    width: 200px;
+    height: 30px;
+    width: 180px;
     position: absolute;
     left: 0px;
     background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
@@ -77,8 +77,8 @@
 
 .contact-nav::before {
     content: '';
-    height: 50px;
-    width: 205px;
+    height: 30px;
+    width: 185px;
     left: -2.5px;
     top: 2.5px;
     position: absolute;
