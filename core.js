@@ -114,13 +114,13 @@ $(document).ready(function () {
     }
 
     function hideNavContactNumber() {
-        contactNav.fadeOut();
         moveUnderline(false);
+        contactNav.slideUp(1);
     }
 
     function showNavContactNumber() {
-        contactNav.fadeIn();
         moveUnderline(true);
+        contactNav.slideDown(700);
     }
 
     function toggleMenuButtonEvent() {
