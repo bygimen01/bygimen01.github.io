@@ -1,137 +1,115 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const navbar = document.getElementById("navigation");
-    const banner = document.querySelector(".banner");
-    const bannerText = document.querySelector(".banner .text-center");
-    const animatedElements = document.querySelectorAll(".animate");
-    const form = document.getElementById("my-form");
-    const status = document.getElementById("my-form-status");
 
-    let isAnimating = false;
-
-    const toggleNavbarShadow = () => {
-        const bannerHeight = banner.offsetHeight;
-        navbar.classList.toggle("navbar-shadow", window.scrollY > bannerHeight);
-    };
-
-    const handleBannerParallax = () => {
-        if (banner) {
-            banner.classList.toggle("scrolled", window.scrollY > 50);
-        }
-    };
-
-    const animateVisibleElements = () => {
-        if (isAnimating) return;
-
-        const visibleElements = Array.from(animatedElements).filter((el) => {
-            const rect = el.getBoundingClientRect();
-            return (
-                rect.top < window.innerHeight - 50 &&
-                rect.bottom + 50 > 0 &&
-                !el.classList.contains("visible")
-            );
-        });
-
-        if (visibleElements.length > 0) {
-            isAnimating = true;
-
-            visibleElements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.classList.add("visible");
-
-                    if (index === visibleElements.length - 1) {
-                        isAnimating = false;
-                    }
-                }, index * 100);
-            });
-        }
-    };
-
-    const markAllVisibleOnScrollEnd = () => {
-        if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
-            animatedElements.forEach((el) => el.classList.add("visible"));
-            isAnimating = false;
-        }
-    };
-
-    const handleScroll = () => {
-        toggleNavbarShadow();
-        handleBannerParallax();
-        animateVisibleElements();
-        markAllVisibleOnScrollEnd();
-    };
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-
-        try {
-            const response = await fetch(event.target.action, {
-                method: form.method,
-                body: formData,
-                headers: { Accept: "application/json" },
-            });
-
-            if (response.ok) {
-                status.textContent = "Thanks for your submission!";
-                form.reset();
+        // Прелоадер: плавное скрытие после загрузки страницы
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => { preloader.style.display = 'none'; }, 600);
+          });
+      
+          // Переключение мобильного меню и трансформация гамбургера
+          function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.getElementById('hamburger');
+            if (mobileMenu.style.display === 'flex') {
+              mobileMenu.style.display = 'none';
+              hamburger.classList.remove('open');
             } else {
-                const data = await response.json();
-                status.textContent = data.errors
-                    ? data.errors.map((error) => error.message).join(", ")
-                    : "Oops! There was a problem submitting your form.";
+              mobileMenu.style.display = 'flex';
+              hamburger.classList.add('open');
             }
-        } catch {
-            status.textContent = "Oops! There was a problem submitting your form.";
-        }
-    };
-
-    window.scrollTo(0, 0);
-
-    window.addEventListener("scroll", handleScroll);
-    form.addEventListener("submit", handleSubmit);
-    handleScroll();
-});
-
-$(document).ready(function () {
-    const contactNav = $(".contact-nav");
-    const menuTogglerButton = $("#menuToggleButton");
-
-    function moveUnderline(up) {
-        let underline = $(".container-underline");
-        let currentTop = parseInt(underline.css("top"));
-        let height = parseInt($(".burger-menu").css('height'));
-        let targetTop = up ? currentTop - height : currentTop + height;
-        let step = up ? -3 : 3;
-        let interval = setInterval(() => {
-            currentTop += step;
-            underline.css("top", currentTop + "px");
-
-            if ((up && currentTop <= targetTop) || (!up && currentTop >= targetTop)) {
-                underline.css("top", targetTop + "px");
-                clearInterval(interval);
+          }
+      
+          // Анимация появления элементов при скролле с помощью Intersection Observer
+          const animateElements = document.querySelectorAll('.animate');
+          const observerOptions = { threshold: 0.2 };
+          const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, observerOptions);
+          animateElements.forEach(el => observer.observe(el));
+      
+          // Модальное окно для портфолио
+          const portfolioItems = document.querySelectorAll('.portfolio-item');
+          const modal = document.getElementById('modal');
+          const modalImage = document.getElementById('modalImage');
+          portfolioItems.forEach(item => {
+            item.addEventListener('click', () => {
+              modalImage.src = item.getAttribute('data-image');
+              modal.classList.add('open');
+            });
+          });
+          function closeModal() { modal.classList.remove('open'); }
+          modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+      
+          // Эффект частиц в шапке с использованием Canvas
+          const canvas = document.getElementById('particleCanvas');
+          const ctx = canvas.getContext('2d');
+          let particles = [];
+          const particleCount = 100;
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+      
+          class Particle {
+            constructor() {
+              this.reset();
             }
-        }, 1);
-    }
-
-    function hideNavContactNumber() {
-        moveUnderline(false);
-        contactNav.slideUp(1);
-    }
-
-    function showNavContactNumber() {
-        moveUnderline(true);
-        contactNav.slideDown(700);
-    }
-
-    function toggleMenuButtonEvent() {
-        if (menuTogglerButton.hasClass('collapsed')) {
-            showNavContactNumber();
-            console.log("Showing");
-        } else {
-            hideNavContactNumber();
-            console.log("Hiding");
-        }
-    }
-
-    menuTogglerButton.on('click', toggleMenuButtonEvent);
-});
+            reset() {
+              this.x = Math.random() * canvas.width;
+              this.y = Math.random() * canvas.height;
+              this.vx = (Math.random() - 0.5) * 0.5;
+              this.vy = (Math.random() - 0.5) * 0.5;
+              this.radius = Math.random() * 2 + 1;
+              this.alpha = Math.random() * 0.5 + 0.5;
+            }
+            update() {
+              this.x += this.vx;
+              this.y += this.vy;
+              if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                this.reset();
+              }
+            }
+            draw() {
+              ctx.beginPath();
+              ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+              ctx.fillStyle = `rgba(240,210,122,${this.alpha})`;
+              ctx.fill();
+            }
+          }
+          function initParticles() {
+            for (let i = 0; i < particleCount; i++) {
+              particles.push(new Particle());
+            }
+          }
+          function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+              p.update();
+              p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+          }
+          initParticles();
+          animateParticles();
+      
+          // Изменение размеров Canvas при изменении размера окна
+          window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+          });
+      
+          // Отслеживание направления скролла для навигации и шапки
+          let lastScrollY = window.pageYOffset;
+          window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScrollY) {
+              document.body.setAttribute('data-scroll-direction', 'down');
+            } else {
+              document.body.setAttribute('data-scroll-direction', 'up');
+            }
+            lastScrollY = currentScroll;
+          });
+    

@@ -1,254 +1,190 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Porządna Firma</title>
-    <link rel="icon" href="favicon.png" type="image/png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link rel="stylesheet" href="./style/about.css">
-    <link rel="stylesheet" href="./style/animation.css">
-    <link rel="stylesheet" href="./style/banner.css">
-    <link rel="stylesheet" href="./style/mobile.css">
-    <link rel="stylesheet" href="./style/navigation.css">
-    <link rel="stylesheet" href="./style/services.css">
-    <link rel="stylesheet" href="./style/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budowa Wnętrz – Интерьеры с характером</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div id="navigation" class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container d-flex align-items-center">
-        <div class="logo-with-contact">
-            <div class="logo-with-title">
-            <img class="logo-nav" src="favicon.svg" alt="logo">
-            <a class="navbar-brand" href="#banner">Porządna Firma</a>
-        </div>
-        <div class="navbar-nav contact-nav order-1 me-auto">
-            <a class="nav-link nav-phone-number" href="tel:+48999999999">+48 999 999 999</a>
-        </div>
-        </div>
-        <button class="navbar-toggler order-2 ms-auto" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation" id="menuToggleButton">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse order-lg-1" id="navbarNav">
-            <ul class="navbar-nav burger-menu ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">O firmie</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#services">Usługi</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#blog">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Kontakt</a>
-                </li>
-            </ul>
-        </div>
+  <!-- Прелоадер -->
+  <div id="preloader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Мобильное меню -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-close" onclick="toggleMobileMenu()">&times;</div>
+    <a href="#home" onclick="toggleMobileMenu()">Главная</a>
+    <a href="#about" onclick="toggleMobileMenu()">О компании</a>
+    <a href="#services" onclick="toggleMobileMenu()">Услуги</a>
+    <a href="#portfolio" onclick="toggleMobileMenu()">Портфолио</a>
+    <a href="#contact" onclick="toggleMobileMenu()">Контакты</a>
+  </div>
+
+  <!-- Навигация -->
+  <nav>
+    <div class="logo">Porządna Firma</div>
+    <ul>
+      <li><a href="#home">Głowna</a></li>
+      <li><a href="#about">O nas</a></li>
+      <li><a href="#services">Usługi</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-    <div class="container-underline">
+  </nav>
+
+  <!-- Шапка -->
+  <header id="home">
+    <canvas id="particleCanvas"></canvas>
+    <div class="header-content">
+      <h1>Wnętrza z charakterem</h1>
+      <p>Kreatywne rozwiązania do tworzenia unikalnych przestrzeni wewnętrznych</p>
+      <div class="scroll-down" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+        &#8595;
+      </div>
     </div>
-</div>
+  </header>
 
+  <!-- Секция "О компании" -->
+  <section id="about" class="about section-diagonal">
+    <div class="about-container animate">
+      <div>
+        <h2 class="section-title">O nas</h2>
+        <p>
+          Jesteśmy wiodącą polską firmą budowlaną specjalizującą się w pracach wykończeniowych. Nasze projekty łączą wysoką jakość, innowacyjny design i niestandardowe rozwiązania, tworząc przestrzenie, które odzwierciedlają indywidualność każdego klienta.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Волна внизу секции -->
+    <svg class="wave" viewBox="0 0 800 400" preserveAspectRatio="none">
+      <path d="M0,200 C200,100 600,300 800,200 L800,400 L0,400 Z" fill="var(--primary-color)" />
+    </svg>
+  </section>
 
-<div id="banner" class="banner d-flex flex-column full-height animate">
-    <div class="flex-grow-1 d-flex align-items-center justify-content-center text-white">
-        <div class="text-center banner-text">
-            <h1>Porządna Firma</h1>
-            <p>Realizujemy Twoje marzenia – solidnie, precyzyjnie i na czas. Zaufaj specjalistom!</p>
+  <!-- Секция "Услуги" -->
+  <section id="services" class="section-diagonal">
+    <div class="animate">
+      <h2 class="section-title">Szeroki zakres prac</h2>
+      <div class="services">
+        <div class="col-md-3 col-sm-6 mb-4 animate">
+          <img src="./images/adaptacja_projektu.png" alt="Adaptacja projektu" class="mb-3 white-icon" width="64">
+          <h5>Adaptacja projektu</h5>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4 animate">
+          <img src="./images/uslugi_geodezyjne.png" alt="Usługi geodezyjne" class="mb-3 white-icon" width="64">
+          <h5>Usługi geodezyjne</h5>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4 animate">
+          <img src="./images/badania_geotechniczne.png" alt="Badania geotechniczne" class="mb-3 white-icon"
+               width="64">
+          <h5>Badania geotechniczne</h5>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4 animate">
+          <img src="./images/kierownik_budowy.png" alt="Kierownik budowy" class="mb-3 white-icon" width="64">
+          <h5>Kierownik budowy</h5>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4 animate">
+          <img src="./images/prace_ziemne.png" alt="Prace ziemne" class="mb-3 white-icon" width="64">
+          <h5>Prace ziemne</h5>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4 animate">
+          <img src="./images/wykonywanie_fundamentow.png" alt="Wykonywanie fundamentów" class="mb-3 white-icon"
+               width="64">
+          <h5>Wykonywanie fundamentów</h5>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4 animate">
+          <img src="./images/roboty_murarskie.png" alt="Roboty murarskie" class="mb-3 white-icon" width="64">
+          <h5>Roboty murarskie</h5>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4 animate">
+          <img src="./images/dachy.png" alt="Dachy" class="mb-3 white-icon" width="64">
+          <h5>Dachy</h5>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция "Портфолио" -->
+  <section id="portfolio" class="section-diagonal">
+    <div class="animate">
+      <h2 class="section-title">Portfolio</h2>
+      <div class="portfolio">
+        <div class="portfolio-items">
+          <div class="portfolio-item animate" style="background-image: url('project1.jpg');" data-image="project1.jpg"></div>
+          <div class="portfolio-item animate" style="background-image: url('project2.jpg');" data-image="project2.jpg"></div>
+          <div class="portfolio-item animate" style="background-image: url('project3.jpg');" data-image="project3.jpg"></div>
+          <div class="portfolio-item animate" style="background-image: url('project4.jpg');" data-image="project4.jpg"></div>
         </div>
+      </div>
     </div>
+  </section>
 
-    <div class="scroll-indicator">
-        <div class="arrow">&#x25B2;</div>
+  <!-- Модальное окно для портфолио -->
+  <div class="modal" id="modal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <img src="" alt="Portfolio Image" id="modalImage">
+  </div>
+
+  <!-- Секция "Контакты" -->
+  <section id="contact" class="section-diagonal">
+    <div class="animate">
+      <h2 class="section-title">Kontakt</h2>
+      <form class="contact-form" id="my-form" action="https://formspree.io/f/xnnnlqqe" method="POST">
+        <input type="text" id="name" name="name" placeholder="Imię" required>
+        <input type="email" id="email" name="email" placeholder="E-mail" required>
+        <textarea rows="5" id="message" name="message" placeholder="Treśc" required></textarea>
+        <button type="submit">Wyślij</button>
+        <p id="my-form-status"></p>
+      </form>
     </div>
+  </section>
 
-</div>
+  <footer id="footer" class="footer section-diagonal">
+          <div class="d-flex animate">
+              <svg class="font-awesome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                  <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
+              </svg>
+              <div class="ms-3">
+                  <h5>Zadzwoń do nas</h5>
+                  <a class="nav-link" href="tel:+48999999999">+48 999 999 999</a>
+              </div>
+          </div>
+          <div class="d-flex animate">
+              <svg class="font-awesome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                  <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                  <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
+              </svg>
+              <div class="ms-3">
+                  <h5>Lokalizacja</h5>
+                  <a class="nav-link" target="_blank"
+                     href="https://www.google.com/maps?q=ul.+Kajdasza+30,+52-234+Wrocław">ul. Kajdasza 30,
+                      52-234 Wrocław</a>
+              </div>
+          </div>
 
-<div id="about" class="py-5 bg-dark text-white">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 animate">
-                <h2 class="mb-4">O firmie</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada maximus ullamcorper. Ut
-                    varius purus ante, et mattis sapien mattis sed. Phasellus pharetra sapien at lectus varius, volutpat
-                    mollis velit porta. Maecenas fringilla mollis hendrerit. Sed feugiat imperdiet scelerisque. In in
-                    accumsan felis. Cras non massa ac felis commodo placerat. Donec et orci mattis, mattis tortor non,
-                    aliquet lorem. Nullam eget pharetra nunc, eget interdum felis. Ut sed enim vitae quam tincidunt
-                    malesuada sodales sed leo.
+          <div class="d-flex animate">
+              <svg class="font-awesome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                  <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
+              </svg>
+              <div class="ms-3">
+                  <h5>Napisz do nas</h5>
+                  <a class="nav-link" href="mailto:rosstudio@gmail.com">rosstudio@gmail.com</a>
+              </div>
+          </div>
+  </footer>
 
-                    In hac habitasse platea dictumst. In bibendum vitae justo ac dignissim. Nulla eget enim suscipit
-                    felis scelerisque ullamcorper. Fusce commodo, nunc sed vulputate varius, enim eros consequat libero,
-                    in fringilla metus mauris lobortis urna. Cras consequat non elit in tincidunt. Quisque volutpat dui
-                    ac mauris maximus volutpat. Duis et libero magna. Phasellus dignissim sapien sed enim pulvinar
-                    malesuada. Nunc ac vehicula nulla, nec porttitor eros. Nulla at pulvinar massa, eu facilisis lectus.
-                    Donec mattis sollicitudin ullamcorper. Aliquam in eros volutpat, efficitur nunc tempor, egestas
-                    lacus.</p>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="d-flex flex-column align-items-center justify-content-center h-100">
-                    <div class="mb-4 animate">
-                        <img src="./images/banner_background_2.webp" alt="O firmie" class="img-fluid rounded">
-                    </div>
-                    <div class="text-center contact-about animate">
-                        <h5 class="mb-3 animate">Masz pytania?</h5>
-                        <p class="animate">Jesteśmy do Twojej dyspozycji, gotowi udzielić szczegółowych informacji o
-                            naszej ofercie oraz doradzić na każdym etapie realizacji Twojego projektu. Skontaktuj się z
-                            nami, aby omówić swoje potrzeby i oczekiwania.</p>
-
-
-                        <div class="d-flex align-items-center justify-content-center mb-3 animate">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="24" width="24"
-                                 fill="white">
-                                <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
-                            </svg>
-                            <a class="nav-link ms-3" href="tel:+48999999999">+48 999 999 999</a>
-                        </div>
-
-                        <div class="d-flex align-items-center justify-content-center animate">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="24" width="24"
-                                 fill="white">
-                                <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
-                            </svg>
-                            <a class="nav-link ms-3" href="mailto:rosstudio@gmail.com">rosstudio@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<div id="services" class="py-5 bg-dark text-white">
-    <div class="container">
-        <div class="text-center mb-5 animate">
-            <h2 class="fw-bold">Szeroki zakres prac</h2>
-            <p>Zapewniamy kompleksowe usługi budowlane, gwarantując wsparcie na każdym etapie <strong>realizacji Twojego
-                wymarzonego domu</strong>.</p>
-        </div>
-        <div class="row text-center">
-            <div class="col-md-3 col-sm-6 mb-4 animate">
-                <img src="./images/adaptacja_projektu.png" alt="Adaptacja projektu" class="mb-3 white-icon" width="64">
-                <h5>Adaptacja projektu</h5>
-            </div>
-            <div class="col-md-3 col-sm-6 mb-4 animate">
-                <img src="./images/uslugi_geodezyjne.png" alt="Usługi geodezyjne" class="mb-3 white-icon" width="64">
-                <h5>Usługi geodezyjne</h5>
-            </div>
-            <div class="col-md-3 col-sm-6 mb-4 animate">
-                <img src="./images/badania_geotechniczne.png" alt="Badania geotechniczne" class="mb-3 white-icon"
-                     width="64">
-                <h5>Badania geotechniczne</h5>
-            </div>
-            <div class="col-md-3 col-sm-6 mb-4 animate">
-                <img src="./images/kierownik_budowy.png" alt="Kierownik budowy" class="mb-3 white-icon" width="64">
-                <h5>Kierownik budowy</h5>
-            </div>
-            <div class="col-md-3 col-sm-6 mb-4 animate">
-                <img src="./images/prace_ziemne.png" alt="Prace ziemne" class="mb-3 white-icon" width="64">
-                <h5>Prace ziemne</h5>
-            </div>
-            <div class="col-md-3 col-sm-6 mb-4 animate">
-                <img src="./images/wykonywanie_fundamentow.png" alt="Wykonywanie fundamentów" class="mb-3 white-icon"
-                     width="64">
-                <h5>Wykonywanie fundamentów</h5>
-            </div>
-            <div class="col-md-3 col-sm-6 mb-4 animate">
-                <img src="./images/roboty_murarskie.png" alt="Roboty murarskie" class="mb-3 white-icon" width="64">
-                <h5>Roboty murarskie</h5>
-            </div>
-            <div class="col-md-3 col-sm-6 mb-4 animate">
-                <img src="./images/dachy.png" alt="Dachy" class="mb-3 white-icon" width="64">
-                <h5>Dachy</h5>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div id="contact" class="bg-dark text-white py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <h2 class="mb-4 animate">Kontakt</h2>
-                <form id="my-form" action="https://formspree.io/f/xnnnlqqe" method="POST">
-                    <div class="mb-3 animate">
-                        <label for="name" class="form-label">Imię</label>
-                        <input type="text" class="form-control bg-dark text-white border-secondary" id="name"
-                               name="name" placeholder="Twoje imię" required>
-                    </div>
-                    <div class="mb-3 animate">
-                        <label for="email" class="form-label">Twój e-mail</label>
-                        <input type="email" class="form-control bg-dark text-white border-secondary" id="email"
-                               name="email" placeholder="Twój e-mail" required>
-                    </div>
-                    <div class="mb-3 animate">
-                        <label for="message" class="form-label">Wiadomość</label>
-                        <textarea class="form-control bg-dark text-white border-secondary" id="message" name="message"
-                                  rows="4" placeholder="Twoja wiadomość" required></textarea>
-                    </div>
-                    <div class="text-end animate">
-                        <button type="submit" class="btn btn-primary">Wyślij</button>
-                    </div>
-                    <p id="my-form-status"></p>
-                </form>
-
-            </div>
-
-            <div class="col-lg-5">
-                <div class="d-flex flex-column gap-5">
-                    <div class="d-flex animate">
-                        <svg class="font-awesome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                            <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
-                        </svg>
-                        <div class="ms-3">
-                            <h5>Zadzwoń do nas</h5>
-                            <a class="nav-link" href="tel:+48999999999">+48 999 999 999</a>
-                        </div>
-                    </div>
-                    <div class="d-flex animate">
-                        <svg class="font-awesome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                            <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                            <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
-                        </svg>
-                        <div class="ms-3">
-                            <h5>Lokalizacja</h5>
-                            <a class="nav-link" target="_blank"
-                               href="https://www.google.com/maps?q=ul.+Kajdasza+30,+52-234+Wrocław">ul. Kajdasza 30,
-                                52-234 Wrocław</a>
-                        </div>
-                    </div>
-
-                    <div class="d-flex animate">
-                        <svg class="font-awesome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                            <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
-                        </svg>
-                        <div class="ms-3">
-                            <h5>Napisz do nas</h5>
-                            <a class="nav-link" href="mailto:rosstudio@gmail.com">rosstudio@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <div class="navbar-dark bg-dark text-white text-center footer">
-        &copy; 2024 Porządna Firma Rostyslav Burdeniuk. All rights reserved.
-    </div>
-</footer>
-
-<script src="core.js"></script>
+  <script src="core.js">
+  </script>
 </body>
+
 </html>
